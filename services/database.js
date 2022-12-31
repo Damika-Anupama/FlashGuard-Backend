@@ -11,19 +11,15 @@ const connection = mysql.createConnection(detail);
 
 connection.connect(function (error) {
   if (error) throw error;
-  console.log("Connected to MySQL");
-
   connection.query(
     `CREATE DATABASE IF NOT EXISTS flashguard`,
     function (error, results) {
       if (error) throw error;
-      console.log("Database created");
     }
   );
 
   connection.query(`USE flashguard`, function (error, results) {
     if (error) throw error;
-    console.log("Using flashguard");
   });
 
   // create the 'User' table
@@ -44,7 +40,6 @@ connection.connect(function (error) {
     `,
     function (error, results) {
       if (error) throw error;
-      console.log("User table created");
     }
   );
 
@@ -60,7 +55,6 @@ connection.connect(function (error) {
     `,
     function (error, results) {
       if (error) throw error;
-      console.log("Setting table created");
     }
   );
 
@@ -80,7 +74,6 @@ connection.connect(function (error) {
     `,
     function (error, results) {
       if (error) throw error;
-      console.log("Seizure table created");
     }
   );
 
@@ -100,7 +93,6 @@ connection.connect(function (error) {
     `,
     function (error, results) {
       if (error) throw error;
-      console.log("Location table created");
     }
   );
 
@@ -122,7 +114,6 @@ connection.connect(function (error) {
     `,
     function (error, results) {
       if (error) throw error;
-      console.log("Medication table created");
     }
   );
 
@@ -142,7 +133,6 @@ connection.connect(function (error) {
     `,
     function (error, results) {
       if (error) throw error;
-      console.log("Trigger_Detail table created");
     }
   );
 
@@ -164,7 +154,6 @@ connection.connect(function (error) {
     `,
     function (error, results) {
       if (error) throw error;
-      console.log("Log table created");
     }
   );
 
@@ -183,7 +172,6 @@ connection.connect(function (error) {
     `,
     function (error, results) {
       if (error) throw error;
-      console.log("Notification table created");
     }
   );
 
@@ -204,7 +192,6 @@ connection.connect(function (error) {
     `,
     function (error, results) {
       if (error) throw error;
-      console.log("Doctor table created");
     }
   );
   // Close the connection
