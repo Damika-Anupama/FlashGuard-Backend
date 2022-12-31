@@ -4,8 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index.router');
 var usersRouter = require('./routes/users.router');
+var database = require('./services/database');
 
 var app = express();
 
@@ -19,7 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+//  create database and tables if don't exist
+database.connect();
+
 app.use('/api/v1/user', usersRouter);
 
 // catch 404 and forward to error handler

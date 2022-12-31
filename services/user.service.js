@@ -1,6 +1,5 @@
 const db = require("./db.connection");
 const helper = require("./helper");
-const config = require("../config/config");
 
 async function getById(id) {
   const result = await db.query(`SELECT * FROM User WHERE user_id=?`, [id]);
