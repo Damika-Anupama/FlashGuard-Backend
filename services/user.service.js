@@ -9,7 +9,7 @@ async function getById(id) {
 
   return { data };
 }
-async function getByName(username) {
+async function getByUsername(username) {
   const result = await db.query(`SELECT * FROM User WHERE username=?`, [
     username,
   ]);
@@ -25,45 +25,35 @@ async function getByEmail(email) {
 
   return { data };
 }
-async function getMultiple(page = 1) {
-  const offset = helper.getOffset(page, config.listPerPage);
-  const rows = await db.query(
-    `SELECT * FROM User LIMIT ${offset},${config.listPerPage}`
-  );
+async function getMultiple() {
+  const rows = await db.query("SELECT * FROM User");
   const data = helper.emptyOrRows(rows);
-  const meta = { page };
 
   return {
     data,
-    meta,
   };
 }
 async function create(user) {
-  let message = "";
   const insertUser =
     "INSERT INTO User (username, email, password, first_name, last_name, date_of_birth, gender, profile_picture, user_role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-  await db.query(
-    insertUser,
-    [
-      user.username,
-      user.email,
-      user.password,
-      user.first_name,
-      user.last_name,
-      user.date_of_birth,
-      user.gender,
-      user.profile_picture,
-      user.user_role,
-    ],
-    (error, results) => {
-      if (error) {
-        message = "Error in creating the user!";
-      } else {
-        message = "user created successfully!";
-      }
-    }
-  );
+  let result = await db.query(insertUser, [
+    user.username,
+    user.email,
+    user.password,
+    user.first_name,
+    user.last_name,
+    user.date_of_birth,
+    user.gender,
+    user.profile_picture,
+    user.user_role,
+  ]);
+
+  let message = "Error in creating the user!";
+
+  if (result.affectedRows) {
+    message = "user created successfully!";
+  }
 
   return { message };
 }
@@ -111,7 +101,7 @@ async function remove(id) {
 
 module.exports = {
   getById,
-  getByName,
+  getByUsername,
   getByEmail,
   getMultiple,
   create,

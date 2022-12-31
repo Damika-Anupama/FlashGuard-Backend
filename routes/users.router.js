@@ -14,9 +14,9 @@ router.get('/:id', async function(req, res, next) {
   }
 });
 /* GET user by name */
-router.get('/name/:name', async function(req, res, next) {
+router.get('/username/:name', async function(req, res, next) {
   try {
-    res.json(await users.getByName(req.params.name));
+    res.json(await users.getByUsername(req.params.name));
   } catch (err) {
     console.error(`Error while getting user' name`, err.message);
     // send error response if there was a problem
@@ -42,7 +42,7 @@ router.get('/', async function(req, res, next) {
   } catch (err) {
     console.error(`Error while getting users `, err.message);
     // send error response if there was a problem
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: err.message });
     next(err);
   }
 });
