@@ -9,7 +9,8 @@ const config = {
   host: 'flashguard.mysql.database.azure.com',
   user: 'damiboyflashguard123',
   password: 'eFP@9RxH2m4H',
-  database: 'flashguard'
+  database: 'flashguard',
+  ssl: 'REQUIRED'
 };
 
 module.exports = config;
