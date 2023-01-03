@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 // const config = {
 //   host: 'localhost',
 //   user: 'root',
