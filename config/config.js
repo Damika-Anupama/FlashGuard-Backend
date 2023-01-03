@@ -5,11 +5,7 @@ var config={
   user: 'damiboyflashguard123',
   password: 'eFP@9RxH2m4H',
   database: 'flashguard',
-  port: 3306,
-    ssl: {
-        rejectUnauthorized: true,
-        ca: serverCa
-    }
+  port: 3306
 };
 
 module.exports = config;
