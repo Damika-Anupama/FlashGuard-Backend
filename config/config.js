@@ -10,7 +10,10 @@ const config = {
   user: 'damiboyflashguard123',
   password: 'eFP@9RxH2m4H',
   database: 'flashguard',
-  ssl: 'REQUIRED'
+  port: 3306,
+  ssl: {
+    ca: fs.readFileSync('DigiCertGlobalRootCA.crt.pem')
+  }
 };
 
 module.exports = config;
