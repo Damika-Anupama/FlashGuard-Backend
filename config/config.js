@@ -1,5 +1,5 @@
 var fs = require('fs');
-const serverCa = [fs.readFileSync("/var/www/html/DigiCertGlobalRootCA.crt.pem", "utf8")];
+const serverCa = [fs.readFileSync("${__dirname}/DigiCertGlobalRootCA.crt.pem", "utf8")];
 var config={
   host: 'flashguard.mysql.database.azure.com',
   user: 'damiboyflashguard123',
