@@ -1,5 +1,5 @@
 const request = require("supertest");
-const app = require("../app");
+const app = require("../src/app");
 
 describe("POST /users", () => {
   it("should create a new user", async () => {

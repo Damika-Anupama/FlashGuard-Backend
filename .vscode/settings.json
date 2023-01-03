@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/3bc9bde0-cd8b-42f6-a7ef-cb9548e8f3ff/appservices/subscriptions/3bc9bde0-cd8b-42f6-a7ef-cb9548e8f3ff/resourceGroups/FlashGuard-Backend2/providers/Microsoft.Web/sites/FlashGuard",
+    "appService.deploySubpath": "."
+}
